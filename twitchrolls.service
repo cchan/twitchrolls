@@ -1,0 +1,15 @@
+[Unit]
+Description=twitchrolls.clive.io service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=www
+WorkingDirectory=/home/www/go/src/github.com/cchan/twitchrolls
+ExecStart=/usr/local/go/bin/go run twitchrolls.go
+
+[Install]
+WantedBy=multi-user.target
