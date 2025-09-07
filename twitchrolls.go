@@ -52,7 +52,7 @@ const ITERATIONS int = 100 // number of queries (100 each) to Helix. Rate limit 
 const REFRESHTIME time.Duration = 70 * time.Second
 
 const CLIENT_ID string = "gp762nuuoqcoxypju8c569th9wz7q5"
-const OAUTH string = "Bearer fob6uh9x6z1jyv6pfrjpv0bswnaz9e"
+const OAUTH string = "Bearer lvj8duiwxw16w0n549smwxdx5kfuwo"
 
 var sorted_data []StreamInfo
 var client http.Client
@@ -118,7 +118,7 @@ func get_sorted_data() []StreamInfo {
       return total_data[i].Viewer_count < total_data[j].Viewer_count
     })
     
-    fmt.Println("sorted")
+    // fmt.Println("sorted")
 
     return total_data
 }
