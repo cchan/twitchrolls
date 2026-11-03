@@ -236,5 +236,5 @@ func handler(ctx *fasthttp.RequestCtx) {
 }
 func main() {
   go get_sorted_data_loop()
-  fasthttp.ListenAndServe(":5000", handler)
+  fasthttp.ListenAndServe("127.0.0.1:5000", handler)
 }

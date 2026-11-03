@@ -1,0 +1,9 @@
+[Unit]
+Description=Build twitchrolls (pulled in by twitchrolls.service on every start)
+
+[Service]
+Type=oneshot
+User=www
+Environment=GOTOOLCHAIN=local GOPATH=/home/www/go GO111MODULE=off
+WorkingDirectory=/home/www/go/src/github.com/cchan/twitchrolls
+ExecStart=/usr/local/go1.27.3/bin/go build -o /home/www/bin/twitchrolls twitchrolls.go
