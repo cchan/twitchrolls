@@ -4,6 +4,7 @@ Description=Build twitchrolls (pulled in by twitchrolls.service on every start)
 [Service]
 Type=oneshot
 User=www
-Environment=GOTOOLCHAIN=local GOPATH=/home/www/go GO111MODULE=off
+# Builds only from vendor/ (deps committed in this repo); no network.
+Environment=GOTOOLCHAIN=local GOPATH=/home/www/go GOPROXY=off "GOFLAGS=-buildvcs=false -mod=vendor"
 WorkingDirectory=/home/www/go/src/github.com/cchan/twitchrolls
-ExecStart=/usr/local/go1.27.3/bin/go build -o /home/www/bin/twitchrolls twitchrolls.go
+ExecStart=/usr/local/go1.27.3/bin/go build -o /home/www/bin/twitchrolls .
